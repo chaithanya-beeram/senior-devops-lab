@@ -1,0 +1,24 @@
+name: Build and Scan
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build local image
+        run: |
+          docker build -t senior-app:${{ github.sha }} .
+          echo "Image built successfully with tag ${{ github.sha }}"
+
+      - name: Security Scan (Trivy)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'senior-app:${{ github.sha }}'
+          format: 'table'
+          exit-code: '0' # Don't fail the build yet, just show us the results
+          severity: 'CRITICAL,HIGH'
