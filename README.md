@@ -1,4 +1,4 @@
-# 🚀 Senior DevOps Lab: Cloud-Native Pipeline
+# 🚀 Senior DevOps Lab: End to End Cloud-Native Pipeline
 
 This project demonstrates a full-scale **CI/CD Lifecycle** and **Kubernetes Orchestration** environment. It moves a Python application from local development to a production-ready cluster using automated pipelines and professional ingress routing.
 
