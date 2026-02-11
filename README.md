@@ -1,3 +1,4 @@
+![Build Status](https://github.com/chaithanya-beeram/senior-devops-lab/actions/workflows/pipeline.yml/badge.svg)
 # 🚀 Senior DevOps Lab: End to End Cloud-Native Pipeline
 
 This project demonstrates a full-scale **CI/CD Lifecycle** and **Kubernetes Orchestration** environment. It moves a Python application from local development to a production-ready cluster using automated pipelines and professional ingress routing.
