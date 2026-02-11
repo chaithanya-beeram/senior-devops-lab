@@ -1,0 +1,12 @@
+{
+    "name": "Chaybeeram's DevOps Lab",
+    "image": "mcr.microsoft.com/devcontainers/python:3.9",
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {},
+        "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+            "version": "latest",
+            "helm": "latest"
+        }
+    },
+    "postCreateCommand": "curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64 && chmod +x ./kind && sudo mv ./kind /usr/local/bin/kind"
+}
