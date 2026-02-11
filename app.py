@@ -5,8 +5,8 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     # Combine everything into one string
-    line1 = f"<h1>Build #1: Success</h1>"
-    line2 = f"<h3>This is Chaybeeram running his first devops application</h3>"
+    line1 = f"<h1>Build #2: Success</h1>"
+    line2 = f"<h3>This is Chaybeeram running his first devops application with an ingress controller</h3>"
     line3 = f"<p>Running on: {os.getenv('HOSTNAME')}</p>"
     line4 = f"<p>Application running at: {datetime.now()}</p>"
     

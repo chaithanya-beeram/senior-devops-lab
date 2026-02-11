@@ -23,3 +23,8 @@ jobs:
           push: true
           # Note: It uses your secret username to name the image
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/senior-devops-lab:latest
+      - name: Deploy to Kubernetes
+        run: |
+          # This command tells K8s to restart the pods 
+          # so they pull the fresh 'latest' image from DockerHub
+          kubectl rollout restart deployment/my-app -n production
