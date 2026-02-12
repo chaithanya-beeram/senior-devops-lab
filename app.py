@@ -5,7 +5,13 @@ import os
 app = Flask(__name__)
 
 # Connect to Redis using the Kubernetes Service name 'redis-service'
-cache = redis.Redis(host='redis-service', port=6379)
+redis_pass = os.environ.get('REDIS_PASSWORD')
+
+cache = redis.Redis(
+    host='redis-service', 
+    port=6379, 
+    password=redis_pass  # Now it's secure!
+)
 
 @app.get('/')
 def hello():

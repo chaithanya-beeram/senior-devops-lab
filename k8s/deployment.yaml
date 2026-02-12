@@ -19,8 +19,21 @@ spec:
         image: chaithu2316/senior-devops-lab:latest 
         # This tells K8s: "Always check the cloud for a new version"
         imagePullPolicy: Always 
+        env:
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis-credentials
+              key: redis-password
         ports:
         - containerPort: 5000
+        resources:           # <--- ADD THIS BLOCK
+          requests:
+            memory: "64Mi"   # Minimum memory needed
+            cpu: "100m"      # 1/10th of a CPU core
+          limits:
+            memory: "128Mi"  # Maximum memory allowed
+            cpu: "200m"      # Maximum CPU allowed
 ---
 apiVersion: v1
 kind: Service
