@@ -66,8 +66,19 @@ spec:
       containers:
       - name: redis
         image: redis:alpine
+        args: ["--requirepass", "super-secret-password"] # Now Redis demands the key!
         ports:
         - containerPort: 6379
+      - name: redis
+        image: redis:alpine
+        # ... other settings ...
+        volumeMounts:
+        - name: redis-storage
+          mountPath: /data
+      volumes:
+      - name: redis-storage
+        persistentVolumeClaim:
+          claimName: redis-pvc
 ---
 apiVersion: v1
 kind: Service
